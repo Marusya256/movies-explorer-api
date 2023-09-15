@@ -24,7 +24,7 @@ const { createUser, login } = require('./controllers/users');
 
 const app = express();
 
-app.use(cors({ origin: ['http://movies.galamm.nomoredomains.sbs', 'https://movies.galamm.nomoredomains.sbs', 'http://localhost:3000'], credentials: 'true', preflightContinue: 'true' }));
+app.use(cors({ origin: ['http://movies.galamm.nomoredomains.sbs', 'https://movies.galamm.nomoredomains.sbs', 'http://localhost:3000'], credentials: 'true', preflightContinue: 'true'}));
 
 app.use(cookieParser());
 
@@ -40,12 +40,11 @@ app.use((req, res, next) => {
   const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS'; // test
 
   if (method === 'OPTIONS') {
-    res.statusCode = 404;
     const requestHeaders = req.headers['access-control-request-headers'];
     res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
     res.header('Access-Control-Allow-Headers', requestHeaders);
     res.header('Access-Control-Allow-Credentials', true);
-    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Origin', req.header('origin'));
 
     return res.end();
   }
