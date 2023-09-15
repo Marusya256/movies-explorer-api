@@ -24,7 +24,7 @@ const { createUser, login } = require('./controllers/users');
 
 const app = express();
 
-app.use(cors({ origin: ['http://movies.galamm.nomoredomains.sbs', 'https://movies.galamm.nomoredomains.sbs', 'localhost:3000'], credentials: 'true', preflightContinue: 'true' }));
+app.use(cors({ origin: ['http://movies.galamm.nomoredomains.sbs', 'https://movies.galamm.nomoredomains.sbs', 'http://localhost:3000'], credentials: 'true', preflightContinue: 'true' }));
 
 app.use(cookieParser());
 
@@ -64,8 +64,8 @@ app.post('/signin', celebrate({
 
 app.post('/signup', celebrate({
   body: Joi.object().keys({
-    password: Joi.string().required().min(8),
     email: Joi.string().required().email(),
+    password: Joi.string().required().min(8),
     avatar: Joi.string().pattern(/^(http|https):\/\/(www\.)?[a-zA-Z0-9@:%+-~#=]{2,256}\.[a-z]{2,6}\b([a-zA-Z0-9-.~:/?#[\]@!$&'()+,;=])*/),
     about: Joi.string().min(2).max(30),
     name: Joi.string().min(2).max(30),
