@@ -37,14 +37,14 @@ app.use((req, res, next) => {
 
   const { method } = req;
 
-  const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS';
+  const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS'; // test
 
   if (method === 'OPTIONS') {
     const requestHeaders = req.headers['access-control-request-headers'];
     res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
     res.header('Access-Control-Allow-Headers', requestHeaders);
     res.header('Access-Control-Allow-Credentials', true);
-    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Origin', req.header('origin'));
 
     return res.end();
   }
