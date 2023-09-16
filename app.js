@@ -24,7 +24,7 @@ const { createUser, login } = require('./controllers/users');
 
 const app = express();
 
-app.use(cors({ origin: ['http://movies.galamm.nomoredomains.sbs', 'https://movies.galamm.nomoredomains.sbs', 'http://localhost:3000'], credentials: 'true', preflightContinue: 'true'}));
+app.use(cors({ origin: ['http://movies.galamm.nomoredomains.sbs', 'https://movies.galamm.nomoredomains.sbs', 'http://localhost:3000'], credentials: 'true', preflightContinue: 'true' }));
 
 app.use(cookieParser());
 
