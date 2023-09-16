@@ -37,7 +37,7 @@ app.use((req, res, next) => {
 
   const { method } = req;
 
-  const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS'; // test
+  const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS';
 
   if (method === 'OPTIONS') {
     const requestHeaders = req.headers['access-control-request-headers'];
