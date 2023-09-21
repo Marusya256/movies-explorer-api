@@ -1,4 +1,4 @@
-const { PORT = 3000 } = process.env;
+const { PORT = 3001 } = process.env;
 
 const ERROR_CODE_BASE = 500;
 const ERROR_CODE_NOT_FOUND = 404;

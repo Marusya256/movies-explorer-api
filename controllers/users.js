@@ -26,7 +26,7 @@ const getUser = (req, res, next) => {
 const updateUser = (req, res, next) => {
   User.findByIdAndUpdate(
     req.user._id,
-    { name: req.body.name, about: req.body.about },
+    { name: req.body.name, email: req.body.email },
     { new: true },
   ).orFail(new NotFoundError('Пользователь с указанным ID не найден.'))
     .then((user) => res.send(user))
@@ -79,9 +79,7 @@ const login = (req, res, next) => {
         .cookie('jwt', token, {
           maxAge: 3600000 * 24 * 7,
           httpOnly: true,
-          // sameSite: true,
-          sameSite: 'None',
-          secure: true,
+          sameSite: true,
         })
         .send(user.toJSON());
     })
