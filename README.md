@@ -36,7 +36,7 @@ Cd <Имя-папки>
 ```
 2.	Склонируйте этот репозиторий
 ```
-git clone https://github.com/Marusya256/movies-explorer-frontend.git
+git clone https://github.com/Marusya256/movies-explorer-api.git
 ```
 3.	Установите все зависимости
 ```
